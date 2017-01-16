@@ -1,0 +1,13 @@
+function [geom1,geom2] = g(nrp,x,y)
+sx=0;
+sy=0;
+sxx=0;
+sxy=0;
+for i=1:nrp
+    sx = sx +log(x(i));
+    sy = sy + log(y(i));
+    sxy = sxy + log(x(i))*log(y(i));
+    sxx = sxx + log(x(i))*log(x(i));
+end
+a_geo = (nrp*sxy-sx*sy)/(nrp*sxx-sx*sx)
+b_geo = exp((sy*sxx-sx*sxy)/(nrp*sxx-sx*sx))
